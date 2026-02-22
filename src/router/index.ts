@@ -11,7 +11,6 @@ const routes = [
     meta: {
       title: 'Bidan Susenowati, S.ST.',
       reload: true,
-      requiresAuth: true
     },
   },
   {
