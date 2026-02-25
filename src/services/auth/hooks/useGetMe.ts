@@ -8,8 +8,6 @@ export const getMe = async (role: Role) => {
         user: "auth/me",
     }[role]
 
-    console.log(role)
-
     const { data } = await api.get<IMeResponse>(
         url,
         {

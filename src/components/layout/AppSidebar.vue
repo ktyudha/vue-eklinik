@@ -82,7 +82,7 @@
                       ? 'menu-item-icon-active'
                       : 'menu-item-icon-inactive',
                   ]">
-                    <component :is="item.icon" />
+                    <component :is="item.icon" size="20" />
                   </span>
                   <span v-if="isExpanded || isHovered || isMobileOpen" class="menu-item-text">{{ item.name }}</span>
                 </router-link>
@@ -167,10 +167,13 @@ import {
   // ListIcon,
   // PlugInIcon,
 } from "../../icons";
+
+// import
 import SidebarWidget from "./SidebarWidget.vue";
 // import BoxCubeIcon from "@/icons/BoxCubeIcon.vue";
 import { useSidebar } from "@/composables/useSidebar";
 import AvatarText from "../ui/avatar/AvatarText.vue";
+import UserCircleIcon from "@/icons/UserCircleIcon.vue";
 
 const route = useRoute();
 
@@ -185,6 +188,11 @@ const menuGroups = [
         name: "Beranda",
         path: "/admin/dashboard",
         // subItems: [{ name: "Ecommerce", path: "/", pro: false }],
+      },
+      {
+        icon: UserCircleIcon,
+        name: "Pasien",
+        path: "/admin/patients",
       },
       // {
       //   icon: CalenderIcon,

@@ -1,8 +1,7 @@
 <template>
-
-
-    <h4>Halaman Dashboard, It Works!</h4>
-
+    <div>
+        <h4>Halaman Tambah Pasien, It Works!</h4>
+    </div>
 </template>
 <script setup lang="ts">
 

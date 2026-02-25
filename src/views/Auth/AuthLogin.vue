@@ -28,8 +28,8 @@
 
                 <form @submit="onSubmit">
                   <div class="space-y-5">
-                    <VeeInput name="username" label="Username" required />
-                    <VeeInput name="password" label="Password" isPassword required />
+                    <FormInput name="username" label="Username" required />
+                    <FormInput name="password" label="Password" isPassword required />
 
                     <div>
                       <Button type="submit" :disabled="!meta.valid || isSubmitting" class="w-full">
@@ -85,7 +85,7 @@ import { toast } from 'vue3-toastify'
 
 import CommonGridShape from '@/components/common/CommonGridShape.vue'
 import FullScreenLayout from '@/components/layout/FullScreenLayout.vue'
-import VeeInput from '@/components/forms/VeeInput.vue'
+import FormInput from '@/components/forms/Input/FormInput.vue'
 import Button from '@/components/ui/Button.vue'
 import Spinner from '@/components/ui/Spinner.vue'
 

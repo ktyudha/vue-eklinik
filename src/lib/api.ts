@@ -19,11 +19,6 @@ api.interceptors.request.use((config) => {
 
     if (config.withToken) {
         const token = role ? Cookies.get(mapToken.get(role) as string) : null;
-
-        console.log('role')
-        console.log(role)
-        console.log('token')
-        console.log(token)
         if (token) {
             config.headers.Authorization = `Bearer ${token}`
         }

@@ -14,6 +14,7 @@ import App from './App.vue'
 import router from './router'
 import Vue3Toastify, { type ToastContainerOptions } from 'vue3-toastify';
 import VueApexCharts from 'vue3-apexcharts'
+import { VueQueryPlugin } from '@tanstack/vue-query'
 
 const app = createApp(App)
 const pinia = createPinia()
@@ -32,6 +33,7 @@ app.use(Vue3Toastify, {
     style: { zIndex: 100001, paddingTop: '16px', paddingRight: '16px', paddingLeft: '16px' }
 } as ToastContainerOptions)
 
+app.use(VueQueryPlugin)
 app.use(VueApexCharts)
 
 app.mount('#app')

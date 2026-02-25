@@ -3,6 +3,8 @@ import { storeToRefs } from 'pinia'
 // import { getMe } from '@/services/auth/hooks/useGetMe'
 import { createRouter, createWebHistory } from 'vue-router'
 
+import _admin from './_admin.routes'
+
 const routes = [
   {
     path: '/',
@@ -13,48 +15,12 @@ const routes = [
       reload: true,
     },
   },
-  {
-    path: '/admin',
-    redirect: { name: 'admin.dashboard' },
-    children: [
-      {
-        path: 'login',
-        name: 'admin.login',
-        component: () => import('@/views/Auth/AuthLogin.vue'),
-        meta: {
-          title: 'Login',
-          reload: true,
-          guestOnly: true,
-          authPage: true,
-        },
-      },
-
-      {
-        path: 'dashboard',
-        name: 'admin.dashboard',
-        component: () => import('@/views/Admin/Dashboard/Index.vue'),
-        meta: {
-          title: 'Beranda',
-          reload: true,
-          requiresAuth: true,
-        },
-      },
-      {
-        path: 'profile',
-        name: 'admin.profile',
-        component: () => import('@/views/Admin/Profile/UserProfile.vue'),
-        meta: {
-          title: 'Profil',
-          reload: true,
-          requiresAuth: true,
-        },
-      },
-
-    ]
-  },
 
   // All
   { path: '/:pathMatch(.*)*', name: 'NotFound', component: () => import('@/views/Landing/Other/FourZeroFour.vue') },
+
+  // Extend
+  _admin,
 ]
 
 const router = createRouter({
