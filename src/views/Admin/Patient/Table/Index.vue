@@ -20,7 +20,7 @@
                 <TableBody>
                     <TableLoading v-if="loading" :col-span="5" />
                     <TableNotFound v-else-if="isEmpty(data) || !data" :col-span="5" />
-                    <template v-for="(item, index) in data" :key="index">
+                    <template v-for="(item) in data" :key="item.id">
                         <TableItem :item="item" :open-dropdown-id="openDropdownId" @toggle="openDropdownId = $event" />
                     </template>
                 </TableBody>
