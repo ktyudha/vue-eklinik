@@ -23,7 +23,16 @@
               fill="currentColor" />
           </svg>
         </button>
-        <HeaderLogo />
+
+        <router-link to="/admin/dashboard" class="lg:hidden">
+          <h3 className="dark:text-white text-brand-600 font-semibold text-lg tracking-wide">
+            Settle
+            <span className="text-xs font-normal italic tracking-normal">
+              Klinik
+            </span>
+          </h3>
+        </router-link>
+
         <button @click="toggleApplicationMenu"
           class="flex items-center justify-center w-10 h-10 text-gray-700 rounded-lg z-99999 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800 lg:hidden">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -52,7 +61,6 @@ import { ref } from 'vue'
 import { useSidebar } from '@/composables/useSidebar'
 import ThemeToggler from '../common/ThemeToggler.vue'
 import SearchBar from './header/SearchBar.vue'
-import HeaderLogo from './header/HeaderLogo.vue'
 import NotificationMenu from './header/NotificationMenu.vue'
 import UserMenu from './header/UserMenu.vue'
 

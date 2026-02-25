@@ -1,6 +1,6 @@
 <template>
   <button :class="[
-    'inline-flex items-center justify-center font-medium gap-2 rounded-lg transition',
+    'inline-flex items-center justify-center font-medium gap-2 rounded-lg transition w-full',
     sizeClasses[size],
     variantClasses[variant],
     className,

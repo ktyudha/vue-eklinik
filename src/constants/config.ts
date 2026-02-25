@@ -10,11 +10,19 @@ export const BASE_API_URL = appEnv.VITE_BASE_API_URL ?? DEFAULT_API_URL;
 export const SENTRY_DSN = appEnv.VITE_SENTRY_DSN;
 export const GA_ID = appEnv.VITE_GA_ID;
 
+/** OFFICE */
+export const OFFICE_WHATSAPP = appEnv.VITE_OFFICE_WHATSAPP;
+export const OFFICE_EMAIL = appEnv.VITE_OFFICE_EMAIL;
+
 const config = {
     APP_NAME,
     BASE_API_URL,
     SENTRY_DSN,
     GA_ID,
+
+    /** OFFICE */
+    OFFICE_EMAIL,
+    OFFICE_WHATSAPP,
 };
 
 export default config;
