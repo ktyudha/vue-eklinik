@@ -53,6 +53,8 @@ const routes = [
     ]
   },
 
+  // All
+  { path: '/:pathMatch(.*)*', name: 'NotFound', component: () => import('@/views/Landing/Other/FourZeroFour.vue') },
 ]
 
 const router = createRouter({
