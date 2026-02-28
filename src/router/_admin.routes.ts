@@ -4,19 +4,6 @@ export default {
     component: () => import('@/components/layout/AdminLayout.vue'),
     children: [
 
-        // /** AUTH */
-        // {
-        //     path: 'login',
-        //     name: 'admin.login',
-        //     component: () => import('@/views/Auth/AuthLogin.vue'),
-        //     meta: {
-        //         title: 'Login',
-        //         reload: true,
-        //         guestOnly: true,
-        //         authPage: true,
-        //     },
-        // },
-
         /** DASHBOARD */
         {
             path: 'dashboard',

@@ -4,6 +4,7 @@ import { storeToRefs } from 'pinia'
 import { createRouter, createWebHistory } from 'vue-router'
 
 import _admin from './_admin.routes'
+import _auth from './_auth.routes'
 
 const routes = [
   {
@@ -20,6 +21,7 @@ const routes = [
   { path: '/:pathMatch(.*)*', name: 'NotFound', component: () => import('@/views/Landing/Other/FourZeroFour.vue') },
 
   // Extend
+  _auth,
   _admin,
 ]
 
