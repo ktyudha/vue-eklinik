@@ -8,7 +8,7 @@ import { useRevalidate } from "@/composables/useRevalidate";
 export default function useCreatePatient() {
     const revalidate = useRevalidate();
 
-    const createPatient = async (payload: ICreatePatientPayload) => {
+    const createData = async (payload: ICreatePatientPayload) => {
         try {
 
             const res = await api.post('/admin/patients', payload, { withToken: true })
@@ -30,5 +30,5 @@ export default function useCreatePatient() {
         }
     };
 
-    return { createPatient };
+    return { createData };
 }
