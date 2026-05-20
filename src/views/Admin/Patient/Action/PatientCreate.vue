@@ -6,12 +6,26 @@
                 <FormInput name="name" label="Nama" required />
                 <FormInput name="nik" label="NIK" required />
                 <!-- <FormInput name="username" label="Username" required /> -->
-                <FormInput label="Tempat lahir" name="birth_place" required />
-                <FormInput label="Tanggal lahir" type="date" name="birth_date" required />
-                <FormInput name="religion" label="Agama" required />
-                <FormInput name="gender" label="Jenis Kelamin" required />
+                <div class="grid lg:grid-cols-2 grid-cols-1 lg:gap-4 gap-2">
+                    <FormInput label="Tempat lahir" name="birth_place" required />
+                    <FormDateInput name="birth_date" label="Tanggal Lahir" mode="date" required />
+                </div>
+                <!-- <FormInput label="Tanggal lahir" type="date" name="birth_date" required /> -->
+                <div class="grid lg:grid-cols-2 grid-cols-1 lg:gap-4 gap-2">
+                    <SelectInput name="religion" label="Agama" placeholder="Pilih agama" required :options="[
+                        { value: 'islam', label: 'Islam' },
+                        { value: 'kristen', label: 'Kristen' },
+                        { value: 'katolik', label: 'Katolik' },
+                        { value: 'hindu', label: 'Hindu' },
+                        { value: 'buddha', label: 'Buddha' },
+                        { value: 'konghucu', label: 'Konghucu' },
+                    ]" />
+                    <FormRadioGroup name="gender" label="Jenis Kelamin" required :options="[
+                        { value: 'male', label: 'Laki-laki' },
+                        { value: 'female', label: 'Perempuan' },
+                    ]" />
+                </div>
             </div>
-
 
             <hr>
             <div class="grid lg:grid-cols-3 grid-cols-1 lg:gap-4 gap-2">
@@ -48,6 +62,9 @@ import PageBreadcrumb from '@/components/common/PageBreadcrumb.vue';
 import ComponentCard from '@/components/common/ComponentCard.vue';
 import { ref } from 'vue';
 import FormInput from '@/components/forms/Input/FormInput.vue';
+import FormDateInput from '@/components/forms/FormElements/FormDateInput.vue';
+import FormRadioGroup from '@/components/forms/FormElements/FormRadioGroup.vue';
+import SelectInput from '@/components/forms/FormElements/SelectInput.vue';
 import { useRouter } from 'vue-router';
 import { patientSchema } from '@/services/admin/patient/schemas/request.schema';
 import { useForm } from 'vee-validate';
