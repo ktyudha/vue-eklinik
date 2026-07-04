@@ -1,5 +1,6 @@
+<!-- FormCheckboxGroup.vue — multiple checkboxes bound to a single array field -->
 <script setup lang="ts">
-import FormRadio from './FormRadio.vue'
+import FormCheckboxItem from './FormCheckboxItem.vue'
 import { useField } from 'vee-validate'
 import { useFormFieldLayout, type LabelPosition } from '@/components/forms/composables/useFormFieldLayout'
 
@@ -30,7 +31,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 const { wrapperClass, fieldClass, labelClass } = useFormFieldLayout(props)
 
-const { errorMessage } = useField(props.name)
+const { errorMessage } = useField<string[]>(props.name, undefined, { initialValue: [] })
 </script>
 
 <template>
@@ -42,10 +43,10 @@ const { errorMessage } = useField(props.name)
         </label>
 
         <div :class="fieldClass">
-            <!-- Radio options -->
+            <!-- Checkbox options -->
             <div :class="direction === 'column' ? 'flex flex-col gap-3' : 'flex flex-wrap gap-4'">
-                <FormRadio v-for="opt in options" :key="opt.value" :name="name" :value="opt.value" :label="opt.label"
-                    :required="required" :disabled="disabled || !!opt.disabled" />
+                <FormCheckboxItem v-for="opt in options" :key="opt.value" :name="name" :value="opt.value"
+                    :label="opt.label" :required="required" :disabled="disabled || !!opt.disabled" />
             </div>
 
             <!-- Error message -->
