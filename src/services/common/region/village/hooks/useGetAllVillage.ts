@@ -3,11 +3,11 @@ import { useQuery } from "@tanstack/vue-query";
 import { computed, ref } from "vue";
 import type { IGetAllVillageResponse } from "../interfaces/get-all-village.type";
 
-export default function useGetAllVillage() {
+export default function useGetAllVillage(initialPageLimit = 10) {
   const name = ref("");
   const subDistrictId = ref("");
   const pageNum = ref(1);
-  const pageLimit = ref(10);
+  const pageLimit = ref(initialPageLimit);
 
   const fetcher = () =>
     api
@@ -55,6 +55,9 @@ export default function useGetAllVillage() {
     setName,
     setSubDistrictId,
     setPageNum: (val: number) => (pageNum.value = val),
-    setPageLimit: (val: number) => (pageLimit.value = val),
+    setPageLimit: (val: number) => {
+      pageLimit.value = val;
+      pageNum.value = 1;
+    },
   };
 }

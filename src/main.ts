@@ -7,6 +7,7 @@ import 'jsvectormap/dist/jsvectormap.css'
 import 'flatpickr/dist/flatpickr.css'
 
 import 'vue3-toastify/dist/index.css';
+import 'vue3-select-component/styles.css';
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'

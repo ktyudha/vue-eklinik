@@ -53,6 +53,16 @@ export default {
                         reload: true,
                         requiresAuth: true,
                     },
+                },
+                {
+                    path: ':id/edit',
+                    name: 'admin.patients.edit',
+                    component: () => import('@/views/Admin/Patient/Action/PatientEdit.vue'),
+                    meta: {
+                        title: 'Edit Pasien',
+                        reload: true,
+                        requiresAuth: true,
+                    },
                 }
             ]
         },
