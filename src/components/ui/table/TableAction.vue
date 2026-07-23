@@ -1,14 +1,14 @@
 <template>
     <div class="relative inline-block">
-        <button ref="reference" @click.stop="toggleDropdown">
+        <div ref="reference" class="inline-block" @click.stop="toggleDropdown">
             <slot name="trigger" />
-        </button>
+        </div>
 
         <!-- <Teleport to="body"> -->
         <div v-if="isOpen" ref="floating" :style="floatingStyles" class="z-50">
             <div
                 class="p-2 bg-white border border-gray-200 rounded-2xl shadow-lg dark:border-gray-800 dark:bg-gray-900">
-                <div class="flex space-x-1">
+                <div class="flex min-w-[160px] flex-col gap-1">
                     <slot />
                 </div>
             </div>
@@ -24,9 +24,12 @@ import { useFloating, offset, flip, shift, autoUpdate } from "@floating-ui/vue"
 interface Props {
     id: string
     openDropdownId: string | null;
+    placement?: "left-start" | "bottom-start" | "bottom-end";
 }
 
-const props = defineProps<Props>()
+const props = withDefaults(defineProps<Props>(), {
+    placement: "left-start",
+})
 const isOpen = computed(() => props.openDropdownId === props.id)
 const emit = defineEmits<{
     (e: 'toggle', value: string | null): void
@@ -47,7 +50,7 @@ function closeDropdown() {
 provide("tableActionClose", closeDropdown)
 
 const { floatingStyles } = useFloating(reference, floating, {
-    placement: "left-start",
+    placement: props.placement,
     strategy: "fixed",
     middleware: [offset(6), flip(), shift({ padding: 8 })],
     whileElementsMounted: autoUpdate,

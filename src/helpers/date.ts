@@ -28,9 +28,9 @@ export const parseMonthAndRange = (value: string) => {
 
 export const formatDateAsYMD = (date: Date) => dayjs(date).format("YYYY-MM-DD");
 export const formatDateAsYM = (date: Date) => dayjs(date).format("YYYY-MM");
-export const formatDateShort = (date: Date) => dayjs(date).locale('id').format('DD MMM YYYY')
+export const formatDateShort = (date: Date | string) => dayjs(date).locale('id').format('DD MMM YYYY')
 
-export const formatAge = (date: Date) => {
+export const formatAge = (date: Date | string) => {
   const now = dayjs()
   const birth = dayjs(date)
 

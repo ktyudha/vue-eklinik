@@ -1,5 +1,8 @@
 <template>
     <TableRow>
+        <TableCell>
+            <TableCheckbox :model-value="selected" @update:model-value="$emit('toggle-select', item.id)" />
+        </TableCell>
         <TableCell class="whitespace-nowrap !text-brand-600 dark:!text-white">{{ item.medical_record_number }}
         </TableCell>
         <TableCell class="whitespace-nowrap uppercase !text-brand-600 dark:!text-white font-semibold">{{ item.name }}
@@ -15,23 +18,21 @@
             <span class="text-gray-400 dark:text-gray-500">{{ formatDateShort(item.birth_date)
                 }}</span>
         </TableCell>
-        <TableCell>
-            <TableItemMenu :id="item.id" :name="item.name" :open-dropdown-id="openDropdownId"
-                @toggle="$emit('toggle', $event)" />
-        </TableCell>
     </TableRow>
 </template>
 <script setup lang="ts">
 import Badge from '@/components/ui/badge/Badge.vue';
-import { TableRow, TableCell } from '@/components/ui/table';
+import { TableRow, TableCell, TableCheckbox } from '@/components/ui/table';
 import { formatAge, formatDateShort } from '@/helpers';
 import type { Patient } from '@/services/admin/patient/interfaces/response.type';
-import TableItemMenu from './TableItemMenu.vue';
 
 interface Props {
     item: Patient;
-    openDropdownId: string | null;
+    selected: boolean;
 }
 
 defineProps<Props>()
+defineEmits<{
+    (e: 'toggle-select', id: string): void
+}>()
 </script>

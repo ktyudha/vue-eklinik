@@ -40,6 +40,9 @@ export function useGetAllPatient() {
         name,
         setName,
         setPageNum: (val: number) => (pageNum.value = val),
-        setPageLimit: (val: number) => (pageLimit.value = val),
+        setPageLimit: (val: number) => {
+            pageLimit.value = val
+            pageNum.value = 1
+        },
     }
 }

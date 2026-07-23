@@ -6,9 +6,8 @@ export interface IGetAllPatientResponse {
 }
 
 export interface IGetPatientResponse {
-    status?: string;
     message?: string;
-    data: Patient;
+    patient: Patient;
 }
 
 export interface Patient {
@@ -19,7 +18,7 @@ export interface Patient {
     email: string;
     phone_number: string;
     birth_place: string;
-    birth_date: Date;
+    birth_date: string;
     nik: string;
     religion: string;
     education: string;

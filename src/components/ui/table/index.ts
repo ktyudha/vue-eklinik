@@ -8,6 +8,7 @@ export { default as TableRow } from './TableRow.vue'
 export { default as TableCell } from './TableCell.vue'
 export { default as TableNotFound } from './TableNotFound.vue'
 export { default as TableLoading } from './TableLoading.vue'
+export { default as TableCheckbox } from './TableCheckbox.vue'
 
 
 import { withSubComponents } from '@/helpers'

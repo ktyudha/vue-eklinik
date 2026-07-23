@@ -5,11 +5,11 @@ import { api } from "@/lib/api";
 import { useAuthStore } from "@/store/useStore";
 import type { ILoginResponse } from "../interfaces/response.type";
 import type { ILoginPayloadRequest } from "../interfaces/request.type";
-// import { getMe } from "./useGetMe";
+import { getMe } from "./useGetMe";
 
 export default function useLogin(role: Role) {
     const auth = useAuthStore()
-    const { setRole } = auth
+    const { setRole, setMe, setIsLoggedIn } = auth
 
     const handleLogin = async (payload: ILoginPayloadRequest) => {
 
@@ -26,11 +26,9 @@ export default function useLogin(role: Role) {
 
         setRole(role)
 
-        // const { data: meData } = await getMe(role)
-
-        // if (meData.data) {
-        //     setMe(meData.data)
-        // }
+        const { data: meData } = await getMe(role)
+        setMe(meData.user)
+        setIsLoggedIn(true)
 
         return data;
     };
