@@ -38,7 +38,8 @@
             </div>
 
             <div class="grid grid-cols-1 gap-2">
-                <FormTextarea name="additional_address" label="Alamat Tambahan" placeholder="Detail alamat (RT/RW, patokan, dll)" />
+                <FormTextarea name="additional_address" label="Alamat Tambahan"
+                    placeholder="Detail alamat (RT/RW, patokan, dll)" />
             </div>
 
             <div>
@@ -77,7 +78,7 @@
 
     const router = useRouter()
 
-    const { handleSubmit, isSubmitting, meta, values, setFieldValue } = useForm<ICreatePatientPayload>({
+    const { handleSubmit, isSubmitting, values, setFieldValue } = useForm<ICreatePatientPayload>({
         validationSchema: patientSchema,
     })
 
