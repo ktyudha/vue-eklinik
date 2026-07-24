@@ -16,10 +16,12 @@ const props = withDefaults(defineProps<Props>(), {
     disabled: false,
 })
 
+// vee-validate types checkedValue against the field's whole value (string[]) instead of
+// one array element (string), even though it's handled correctly at runtime — cast around it.
 const { value: fieldValue, handleBlur } = useField<string[]>(props.name, undefined, {
     type: 'checkbox',
     checkedValue: props.value,
-})
+} as any)
 
 const checked = computed(() => Array.isArray(fieldValue.value) && fieldValue.value.includes(props.value))
 </script>
